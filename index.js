@@ -1,4 +1,8 @@
+require('dotenv').config()
+
 const express = require('express')
+
+console.log('environment', process.env.NODE_ENV)
 
 const data = require('./data/db.js')
 
@@ -116,5 +120,5 @@ server.post('/api/posts/:id/comments', (req, res) => {
     })
 })
 
-const port = 8000;
+const port = process.env.PORT;
 server.listen(port, () => console.log(`\n Server running on port ${port}`))
